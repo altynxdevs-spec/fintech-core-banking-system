@@ -2,7 +2,48 @@
 ### High-Performance Banking and Fraud Intelligence Ecosystem
 
 ---
+```mermaid
+graph LR
+    %% Advanced CSS Styling for Smoothness and Color
+    classDef userGateway fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff,rx:20,ry:20;
+    classDef coreApp fill:#1e1b4b,stroke:#818cf8,stroke-width:2px,color:#fff,rx:20,ry:20;
+    classDef aiEngine fill:#4c0519,stroke:#f43f5e,stroke-width:2px,color:#fff,rx:20,ry:20;
+    classDef cloudInfra fill:#064e3b,stroke:#34d399,stroke-width:2px,color:#fff,rx:20,ry:20;
+    classDef dataLayer fill:#422006,stroke:#fb923c,stroke-width:2px,color:#fff,rx:20,ry:20;
+    
+    %% Link Styling (Sleek grey paths)
+    linkStyle default stroke:#64748b,stroke-width:2px,fill:none;
 
+    %% Free-floating Nodes with Icons (No Subgraphs!)
+    Client(["fa:fa-mobile-screen User App"]):::userGateway
+    API(["fa:fa-network-wired API Gateway"]):::userGateway
+    Auth(["fa:fa-shield-halved Security"]):::userGateway
+    
+    NET(["fa:fa-code .NET 8 Microservices"]):::coreApp
+    Ledger(["fa:fa-book-journal-whills Distributed Ledger"]):::coreApp
+    
+    Fraud(["fa:fa-brain Neural Fraud Engine"]):::aiEngine
+    RAG(["fa:fa-chart-network RAG Pipeline"]):::aiEngine
+    
+    K8s(["fa:fa-dharmachakra Kubernetes"]):::cloudInfra
+    AWS(["fa:fa-cloud Multi-Cloud"]):::cloudInfra
+    
+    CRM(["fa:fa-users Salesforce CRM"]):::dataLayer
+    Vault(["fa:fa-lock Encrypted Vault"]):::dataLayer
+
+    %% Flow Path Connections
+    Client == "HTTPS" ==> API
+    API -. "Token" .-> Auth
+    API ==> NET
+    NET ==> Ledger
+    Ledger ==> Fraud
+    Fraud -. "Live Stream" .-> RAG
+    NET ==> K8s
+    K8s ==> AWS
+    RAG ==> CRM
+    AWS ==> Vault
+    CRM ==> Vault
+```
 ![Status](https://img.shields.io/badge/Status-Proprietary-FF8C00?labelColor=BD5A00&style=flat) ![Industry](https://img.shields.io/badge/Industry-Fintech-007FFF?labelColor=004B8D&style=flat) ![Architecture](https://img.shields.io/badge/Architecture-Microservices-26A69A?labelColor=00695C&style=flat)
 
 This repository serves as a mission-critical engineering showcase by **Altynx**. It demonstrates a unified approach to modern financial technology, integrating high-concurrency architecture, neural intelligence, and cloud-native resilience.
